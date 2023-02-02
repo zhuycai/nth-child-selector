@@ -1,0 +1,14 @@
+{
+  "name": "nth-child-selector",
+  "version": "1.0.0",
+  "description": "This project is a set of smart Sass mixins which will help you to manage the style of :nth-child pseudo elements, in an easy and classy way.",
+  "main": "index.js",
+  "Sass": "scss/nth-child-selector.scss",
+  "scripts": {
+    "scss-compile": "sass -w scss:css",
+    "start": "npm run scss-compile"
+  },
+  "keywords": [":nth-child", "pseudo elements"],
+  "author": "Youcai Zhu",
+  "license": "ISC"
+}

@@ -1,0 +1,95 @@
+@mixin first($n: 1) {
+    &:nth-child(-n + #{$n}) {
+        @content;
+    }
+}
+
+@mixin last($n: 1) {
+    &:nth-last-child(-n + #{$n}) {
+        @content;
+    }
+}
+
+@mixin after-first($n: 1) {
+    &:nth-child(n + #{$n + 1}) {
+        @content;
+    }
+}
+
+@mixin from-end($n: 1) {
+    &:nth-last-child(#{$n}) {
+        @content;
+    }
+}
+
+@mixin between($start, $end) {
+    &:nth-child(n + #{$start}):nth-child(-n + #{$end}) {
+        @content;
+    }
+}
+
+@mixin even-between($start, $end) {
+    &:nth-child(n + #{$start}):nth-child(-n + #{$end}):nth-child(even) {
+        @content;
+    }
+}
+
+@mixin odd-between($start, $end) {
+    &:nth-child(n + #{$start}):nth-child(-n + #{$end}):nth-child(odd) {
+        @content;
+    }
+}
+
+@mixin n-between($step, $start, $end) {
+    &:nth-child(n + #{$start}):nth-child(-n + #{$end}):nth-child(#{$step}n + #{$start}) {
+        @content;
+    }
+}
+
+@mixin all-but($n) {
+    &:nth-child(n):not(:nth-child(#{$n})) {
+        @content;
+    }
+}
+
+@mixin each($n) {
+    &:nth-child(#{$n}n) {
+        @content;
+    }
+}
+
+@mixin every($n) {
+    &:nth-child(#{$n}n) {
+        @content;
+    }
+}
+
+@mixin from-first-last($n) {
+    &:nth-child(#{$n}), &:nth-last-child(#{$n}) {
+        @content;
+    }
+}
+
+@mixin middle($n) {
+    &:nth-child(#{ceil(calc($n / 2))}) {
+        @content;
+    }
+}
+
+@mixin all-but-first-last($n) {
+    &:not(:nth-child(-n + #{$n}), :nth-last-child(-n + #{$n})) {
+        @content;
+    }
+}
+
+@mixin first-of($n) {
+    &:first-child:has(~ :nth-child(#{$n}):last-child) {
+        @content;
+    }
+}
+
+@mixin last-of($n) {
+    &:nth-child(#{$n}):last-child {
+        @content;
+    }
+}
